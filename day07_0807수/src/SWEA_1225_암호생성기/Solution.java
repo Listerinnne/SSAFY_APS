@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Solution {
-	
+	//포인터를 쓰면 더 빠르게 할 수 있을지도,, 졸리당
 	public static void main(String[] args) throws FileNotFoundException {
 		File file = new File("1225_input.txt");
 		Scanner sc = new Scanner(file);
@@ -30,7 +30,6 @@ public class Solution {
 				
 				tmp = 0;
 				tmp = queue.get(0);	//queue의 0번째 요소를 tmp에 저장
-//				System.out.println("dec : "+dec+", tmp : "+tmp);
 				queue.remove(0);	//0번째 인덱스의 요소를 제거한다. 
 				
 				if(tmp-dec <= 0) {	//tmp - dec(1에서 5까지의 수)가 0보다 작거나 같을 때
@@ -41,11 +40,10 @@ public class Solution {
 				queue.add(tmp-dec);
 				
 				dec++;
-				if(dec > 5) dec = 1; 
+				if(dec > 5) dec = 1;	//dec가 5보다 커지면 1로 초기화한다.
 				
-//				System.out.println("dec : "+dec);
-//				System.out.println("----------------------");
 			}
+			
 			for(int num : queue) 
 				System.out.print(num + " ");
 			System.out.println();
