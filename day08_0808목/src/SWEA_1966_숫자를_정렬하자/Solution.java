@@ -14,6 +14,7 @@ public class Solution {
 		int t = sc.nextInt();	//테케 개수 입력받기
 
 		for(int tc=0; tc<t; tc++) {	//테케 개수만큼 반복
+			System.out.printf("#%d ", tc+1);
 
 			int[] arr = new int[sc.nextInt()];	//배열 생성
 
@@ -35,7 +36,10 @@ public class Solution {
 				arr[s+1] = tmp;
 			}
 
-			System.out.println(Arrays.toString(arr));
+			for(int num : arr) {
+				System.out.print(num+" ");
+			}
+			System.out.println();
 		}
 
 	}
