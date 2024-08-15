@@ -2,7 +2,10 @@ package 트리_구현;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 public class 보물상자_비밀번호 {
@@ -14,39 +17,56 @@ public class 보물상자_비밀번호 {
 		int t = sc.nextInt();	//테케 개수
 		
 		for(int tc=0; tc<t; tc++) {	//테케만큼 반복
-			
 			n = sc.nextInt();	//n개의 수가 주어짐
+			int n4 = n/4;
 			int k = sc.nextInt();	//k번쨰로 큰 수
+			nStr = sc.next();	//입력받은 숫자를 String으로 저장
+			List<Integer> list = new ArrayList<>();
+			//---------------------------
 			
-			nArr = sc.next().split("");	//입력받은 숫자를 저장할 배열
-			key = new String[4];	//가능한 모든 경우의 암호를 저장할 배열
-			System.out.println("f"+"g");
+			/*1. 문자열을 n/4개씩 나눠 반환한다
+			 * 2. 16진수로 바꾸어 max와 비교, 더 큰 값을 max에 저장한다. 
+			 * 3. 문자열을 돌린다.
+			 * 4. 1부터 총 (n/4)번반복*/ 
 			
+			for(int a=0; a<n4; a++) {
+				
+				//문자열을 n/4개씩 나눠서 출력
+				String tmp = "";
+				for(int i=0; i<n; i=i+n4) {
+					tmp = nStr.substring(i, i+n4);
+					
+					//10진수로 전환
+					int tmpToNum = Integer.parseInt(tmp, 16);
+					//중복 요소 제거
+					if(!list.contains(tmpToNum))
+						list.add(tmpToNum);
+				}
+				
+				//문자열 돌리기
+				nStr = rotate(nStr);
+				
+			}
+			
+			//내림차순 정렬,
+			Collections.sort(list, Collections.reverseOrder());
+			
+			System.out.printf("#%d %d\n", tc+1, list.get(k-1));
 			
 		}
 		
 		
 	}
 	static int n;
-	static String[] nArr;
+	static String nStr;
 	static String[] key;
-	static String[] rotate(String[] nArr) {	//문자열을 한 칸 돌리는 메서드
-		String[] tmpArr = new String[n]; 
-		String tmp = nArr[0];
-		System.arraycopy(nArr, 1, tmpArr, 0, n-1);
-		tmpArr[n-1] = tmp;
-		return tmpArr;
+	
+	//문자열을 한 칸 돌리는 메서드
+	static String rotate(String nStr) {	
+		String tmp = ""+nStr.charAt(0);
+		String result = nStr.substring(1) + tmp;
+		return result;
 	}
 	
-	static String returnKey(String nArr) {	//key에 n/4개씩 잘라 합치기
-		String tmp = "";
-		for(int i=0; i<4; i++) {
-			for(int j=i+4; j<i+2*4; j++) {
-				tmp = tmp+ nArr[j];
-				//StringBuilder를 써보자
-			}
-		}
-		return tmp;
-	}
 
 }
