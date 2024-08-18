@@ -1,11 +1,14 @@
 package 모의테스트;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class 신입사원분반테스트_시험후풀이_success {
  
-    public static void main(String[] args)  {
-        Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) throws FileNotFoundException  {
+    	File file = new File("input_im.txt");
+        Scanner sc = new Scanner(file);
+//        Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
          
         for(int tc=0; tc<t; tc++) {

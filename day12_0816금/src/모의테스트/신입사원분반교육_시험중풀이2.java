@@ -1,3 +1,4 @@
+package 모의테스트;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -5,7 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-public class 모의고사_신입사원분반교육 {
+public class 신입사원분반교육_시험중풀이2 {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		File file = new File("input_im.txt");
