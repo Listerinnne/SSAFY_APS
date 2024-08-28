@@ -5,6 +5,6 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="SWEA_2817/_부분수열의_합/|SWEA_2817._부분수열의_합/" kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
