@@ -3,6 +3,8 @@ package SWEA_1251_하나로_크루스칼;
 import java.util.Arrays;
 import java.util.Scanner;
 //오버플로우 발생
+//답도 조금씩 틀림
+//long으로 바꾸는 방법?
 class Edge implements Comparable<Edge>{	//간선 정보를 모아둘 클래스
 	
 	int node1;	//정점 1의 인덱스
