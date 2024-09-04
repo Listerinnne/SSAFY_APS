@@ -2,7 +2,7 @@ package SWEA_1251_하나로_크루스칼;
 
 import java.util.Arrays;
 import java.util.Scanner;
-
+//오버플로우 발생
 class Edge implements Comparable<Edge>{	//간선 정보를 모아둘 클래스
 	
 	int node1;	//정점 1의 인덱스
@@ -61,7 +61,6 @@ public class Solution {
 	
 	//가중치(환경부담금)를 계산하는 메서드
 	static int calCost(double cost, double length) {	
-		System.out.println("calCost : " + (int)(cost * Math.pow(length, 2)));
 		return (int)(cost * Math.pow(length, 2));
 	}
 	
@@ -95,6 +94,7 @@ public class Solution {
 			 * 2. 환경부담금(가중치)을 기준으로 정렬
 			 * 3. 서로소 집합을 활용하여 답을 구한다 */
 			
+			
 			int idx = 0;	//edge의 인덱스
 			for(int i=0; i<n; i++) {			
 				for(int j=i+1; j<n; j++) {
@@ -103,6 +103,9 @@ public class Solution {
 				}
 			}
 			
+			for(int i=0; i<edge.length; i++) {
+//				System.out.println(edge[i].toString());
+			}
 			Arrays.sort(edge);	//환경부담금을 기준으로 정렬
 			
 			int pick = 0; 		//뽑은 간선의 수	
